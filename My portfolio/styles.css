@@ -1,0 +1,527 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #666666;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+header h3 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #8f62e1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.intro-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    text-align: center;
+    background: url(images/altumcode-XMFZqrGyV-Q-unsplash.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    position: relative; /* Add for overlay */
+    overflow: hidden;   /* Optional: keeps overlay inside */
+}
+
+.intro-page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Adjust opacity for darkness */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.intro-page > * {
+    position: relative;
+    z-index: 2;
+}
+
+.intro-page h1 {
+    font-size: 70px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.intro-page p {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.intro-page a, .btn {
+    background-color: #4e36ff;
+    color: #fff;
+    font-size: 25px;
+    width: 300px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.intro-page a:hover, .btn:hover {
+    background-color: #8f62e1;
+}
+
+#about {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.about, .skills {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 600px;
+    height: fit-content;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin: 100px auto;
+    transition: transform 0.3s ease;
+}
+
+.about h2, .skills h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.about p, .skills p {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.about:hover, .skills:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills ul li {
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 35px;
+}
+
+.skills ul li::before {
+    content: "✔";
+    position: absolute;
+    left: -25px;
+    color: #000;
+}
+
+
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.projects {
+    width: 90%;
+    border-radius: 10px 10px 0 0;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    margin-bottom: 20px;
+}
+
+.projects h2 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.projects p {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+}
+
+.card h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card .btn {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.testimonials {
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 0 0 10px 10px;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 50px solid #666666;
+}
+
+.testimonials-container {
+    width: 1600px;
+    color: #fff;
+    background-color: #666666;
+    padding: 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin: 50px 0;
+    transition: transform 0.3s ease;
+}
+
+.testimonials-container:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+}
+
+.testimonials h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.testimonials p {
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.contact {
+    width: 100%;
+    margin-top: 50px;
+    padding: 50px 20px;
+    background-color: #666666;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-container {
+    width: 1200px;
+    background-color: #fff;
+    padding: 50px 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    transition: transform 0.3s ease;
+}
+
+.contact-container:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+}
+
+.contact h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.contact form {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    font-size: 20px;
+    outline: none;
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+    border-bottom: 1px solid #4e36ff;
+    border-left: 1px solid #4e36ff;
+}
+
+.contact form button {
+    background-color: #4e36ff;
+    color: #fff;
+    font-size: 20px;
+    width: 200px;
+    height: 70px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact form button:hover {
+    background-color: #8f62e1;
+}
+
+footer {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding: 20px 50px;
+    text-align: center;
+    position: relative;
+}
+
+footer p {
+    font-size: 20px;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #8f62e1;
+}
+
+
+@media (max-width: 1260px) {
+    header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .intro-page h1 {
+        font-size: 50px;
+    }
+
+    .intro-page p {
+        font-size: 30px;
+    }
+
+    .about, .skills, .contact-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .about h2, .skills h2, .contact h2 {
+        font-size: 40px;
+    }
+
+    .about p, .skills p, .contact p {
+        font-size: 25px;
+    }
+
+    #about {
+        padding: 30px 20px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects h2, .projects p, .testimonials h2, .contact h2 {
+        font-size: 40px;
+    }
+
+    .projects p, .testimonials p, .contact p {
+        font-size: 25px;
+    }
+
+    .card {
+        width: 300px;
+        height: auto;
+    }
+
+    .card h3 {
+        font-size: 25px;
+    }
+
+    .card p {
+        font-size: 18px;
+    }
+
+    .card .btn {
+        width: 150px;
+        height: 50px;
+        font-size: 15px;
+        position: static;
+    }
+
+    .skills ul li {
+        font-size: 18px;
+    }
+
+    .skills ul li::before {
+        left: -15px;
+    }
+
+    .intro-page a, .btn {
+        width: 250px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .intro-page a, .btn {
+        margin-top: 20px; /* Add spacing above the button */
+        position: static; /* Ensure it's not absolutely positioned */
+    }
+
+    .contact form {
+        width: 100%;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        font-size: 18px;
+    }
+
+    .contact form button {
+        width: 160px;
+        height: 50px;
+        font-size: 13px;
+    }
+
+    footer {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .testimonials-container {
+        width: 100%;
+        padding: 30px 20px;
+    }
+}
